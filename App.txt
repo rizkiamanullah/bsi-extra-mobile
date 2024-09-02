@@ -1,0 +1,132 @@
+import { Pressable, ImageBackground, StyleSheet, Text, View, Image, TextInput, Button } from 'react-native';
+
+const image = { uri: "https://docs.expo.dev/static/images/tutorial/background-image.png" };
+
+export default function App() {
+return (
+    <View style={styles.container}>
+        <ImageBackground source={image} style={styles.image}>
+            <View style={styles.card}>
+                <View style={styles.cardBody}>
+                    <Image style={{width: 200, height: 100, backgroundColor: '#fff', borderRadius: 5}} source={{uri: "https://upload.wikimedia.org/wikipedia/commons/c/ce/Agoda_transparent_logo.png"}}></Image>
+                    <Text style={styles.textP}>Login to start</Text>
+                    <View style={{alignItems: "flex-start"}}>
+                        <TextInput
+                            style={{
+                                padding: 16,
+                                marginBottom: 10,
+                                marginTop: 5,
+                                backgroundColor: "#ededed",
+                                borderRadius: 5,
+                                width: 320
+                            }}
+                            placeholder={'Username'}
+                            />
+                        <TextInput
+                        secureTextEntry={true}
+                            style={{
+                                padding: 16,
+                                marginBottom: 10,
+                                marginTop: 5,
+                                backgroundColor: "#ededed",
+                                borderRadius: 5,
+                                width: 320
+                            }}
+                            placeholder={'Password'}
+                            />
+                            <Pressable style={styles.buttonLogin} title='Login'>
+                                <Text style={{color:"white", fontWeight: "bold", fontSize: 15}}>Login</Text>
+                            </Pressable>
+                    </View>
+                    <Text style={styles.textP}>or</Text>
+                    <Pressable style={styles.buttonGoogle}>
+                        <Image style={{width: 30, height: 30, backgroundColor: '#fff', borderRadius: 5}} source={{uri: "https://techdocs.akamai.com/identity-cloud/img/social-login/identity-providers/iconfinder-new-google-favicon-682665.png"}}></Image>
+                        <Text style={styles.textButton}>Login with Google</Text>
+                    </Pressable>
+                    <Pressable style={styles.button}>
+                        <Image style={{width: 30, height: 30}} source={{uri: "https://cdn.pixabay.com/photo/2022/01/30/13/33/github-6980894_960_720.png"}}></Image>
+                        <Text style={styles.textButton}>Login with Github</Text>
+                    </Pressable>
+                </View>
+            </View>
+        </ImageBackground>
+    </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        flexDirection: 'column',
+    },
+    card: {
+        backgroundColor: 'white',
+        marginHorizontal: 25,
+        height: "auto",
+        borderRadius: 10
+    },
+    cardBody: {
+        alignItems: 'center',
+        padding: 30
+    },
+    image: {
+        flex: 1,
+        resizeMode: 'cover',
+        justifyContent: 'center',
+    },
+    text: {
+        color: 'black',
+        fontSize: 25,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    textP: {
+        color: 'black',
+        fontSize: 18,
+        textAlign: 'center',
+        marginVertical: 10,
+        fontWeight: '300',
+    },
+    button: {
+        flex: 1,
+        flexDirection: "row",
+        margin: 6,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+        borderRadius: 6,
+        elevation: 3,
+        backgroundColor: 'black',
+        width: 320,
+    },
+    buttonLogin: {
+        margin: 6,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 15,
+        borderRadius: 6,
+        color: 'white',
+        elevation: 3,
+        backgroundColor: '#5896fa',
+        width: 320,
+    },
+    buttonGoogle: {
+        flex: 1,
+        flexDirection: "row",
+        margin: 6,
+        alignItems: 'center',
+        justifyContent: 'center',
+        padding: 20,
+        borderRadius: 6,
+        elevation: 3,
+        backgroundColor: '#4183f4',
+        width: 320,
+    },
+    textButton: {
+        color: 'white',
+        fontWeight: 'light',
+        paddingBottom: 15,
+        paddingHorizontal: 10,
+        textAlign: 'center',
+    },
+});
